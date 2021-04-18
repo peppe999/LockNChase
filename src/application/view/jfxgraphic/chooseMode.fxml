@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="543.0" prefWidth="485.0" style="-fx-background-color: #000000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ChooseModeController">
+   <children>
+      <Label layoutX="46.0" layoutY="182.0" text="Con quale modalità desideri giocare?" textFill="#f5f5f5">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="AI" layoutX="46.0" layoutY="452.0" onMouseClicked="#AIClicked" onMouseEntered="#AIEntered" onMouseExited="#AIExited" text="Intelligenza artificiale" textFill="#f8f8f8">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="manual" layoutX="360.0" layoutY="452.0" onMouseClicked="#ManualClicked" onMouseEntered="#ManualEntered" onMouseExited="#ManualExited" text="Manuale" textFill="#f5f3f3">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="back" layoutX="46.0" layoutY="70.0" onMouseClicked="#backClicked" onMouseEntered="#backEntered" onMouseExited="#backExited" text="Indietro" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
