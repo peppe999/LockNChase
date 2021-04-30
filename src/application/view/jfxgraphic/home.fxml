@@ -8,22 +8,22 @@
 
 <AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragEntered="#mouseEntered" prefHeight="543.0" prefWidth="485.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HomeController">
    <children>
-      <Label fx:id="play" layoutX="75.0" layoutY="452.0" onMouseClicked="#mouseClickedPlay" onMouseEntered="#mouseEnteredPlay" onMouseExited="#mouseExitedPlay" text="PLAY" textFill="#f8f7f7">
+      <Label fx:id="play" layoutX="100.0" layoutY="363.0" onMouseClicked="#mouseClickedPlay" onMouseEntered="#mouseEnteredPlay" onMouseExited="#mouseExitedPlay" text="PLAY" textFill="#f8f7f7" AnchorPane.leftAnchor="100.0">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="exit" layoutX="353.0" layoutY="452.0" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEnteredExit" onMouseExited="#mouseExitedExit" text="EXIT" textFill="#f5f3f3">
+      <Label fx:id="exit" layoutX="338.0" layoutY="363.0" onMouseClicked="#mouseClicked" onMouseEntered="#mouseEnteredExit" onMouseExited="#mouseExitedExit" text="EXIT" textFill="#f5f3f3" AnchorPane.rightAnchor="101.0">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ImageView fx:id="idid" fitHeight="200.0" fitWidth="400.0" layoutX="43.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="42.0">
+      <ImageView fx:id="idid" fitHeight="198.0" fitWidth="447.0" layoutX="19.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0">
          <image>
             <Image url="@../../resources/lcc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="logo" fitHeight="125.0" fitWidth="400.0" layoutX="90.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="87.11822509765625">
+      <ImageView fx:id="logo" fitHeight="125.0" fitWidth="400.0" layoutX="100.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="77.11822509765625">
          <image>
             <Image url="@../../resources/logo.jpg" />
          </image>

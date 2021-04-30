@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import application.Main;
+import application.GameAppManager;
 
 import java.io.IOException;
 
@@ -23,32 +26,40 @@ public class ChooseLvlController  {
 
     public void difficileEntered(MouseEvent mouseEvent) {
         difficile.setTextFill(Color.web("#ffff00", 0.8));
+        difficile.setFont(new Font(22.0));
     }
 
     public void difficileExited(MouseEvent mouseEvent) {
         difficile.setTextFill(Color.web("#ffffff", 0.8));
+        difficile.setFont(new Font(20.0));
     }
 
     public void sempliceClicked(MouseEvent mouseEvent) {
+        GameAppManager.getInstance().paus();
     }
 
     public void sempliceEntered(MouseEvent mouseEvent) {
         semplice.setTextFill(Color.web("#ffff00", 0.8));
+        semplice.setFont(new Font(22.0));
     }
 
     public void sempliceExited(MouseEvent mouseEvent) {
         semplice.setTextFill(Color.web("#ffffff", 0.8));
+        semplice.setFont(new Font(20.0));
     }
 
-    public void backClicked(MouseEvent mouseEvent) {
-        GameAppManager.getInstance().chooseMode();
+
+    public void backClicked(MouseEvent mouseEvent) throws IOException {
+       GameAppManager.getInstance().chooseMode();
     }
 
     public void backEntered(MouseEvent mouseEvent) {
         back.setTextFill(Color.web("#ffff00", 0.8));
+        back.setFont(new Font(20.0));
     }
 
     public void backExited(MouseEvent mouseEvent) {
         back.setTextFill(Color.web("#ffffff", 0.8));
+        back.setFont(new Font(18.0));
     }
 }

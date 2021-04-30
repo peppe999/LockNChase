@@ -13,8 +13,10 @@ import java.io.IOException;
 public class GameAppManager {
     private static GameAppManager instance = null;
     private Stage stage;
+    private AudioManager audioManager;
 
-    private GameAppManager() {
+    private GameAppManager(){
+        this.audioManager = AudioManager.getInstance();
     }
 
     public void setStage(Stage s) {
@@ -33,6 +35,7 @@ public class GameAppManager {
         try {
             root = FXMLLoader.load(getClass().getResource("view/jfxgraphic/home.fxml"));
             stage.setScene(new Scene(root));
+            audioManager.homeMedia();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -43,6 +46,7 @@ public class GameAppManager {
         try {
             root = FXMLLoader.load(getClass().getResource("view/jfxgraphic/chooseMode.fxml"));
             stage.setScene(new Scene(root));
+         //   audioManager.homeMedia();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -53,10 +57,24 @@ public class GameAppManager {
         try {
             root = FXMLLoader.load(getClass().getResource("view/jfxgraphic/chooseLvl.fxml"));
             stage.setScene(new Scene(root));
+           // audioManager.homeMedia();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
+    public void paus() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("view/jfxgraphic/pause.fxml"));
+            stage.setScene(new Scene(root));
+            //audioManager.homeMedia();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void startGame() {
         Game game = new Game();
@@ -66,7 +84,6 @@ public class GameAppManager {
         stage.setScene(scene);
         GameLoop gameLoop = new GameLoop(gp);
         gameLoop.start();
-        AudioSystem a = AudioSystem.getInstance();
-        a.playStart();
+        audioManager.runMedia();
     }
 }
