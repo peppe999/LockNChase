@@ -18,6 +18,7 @@ public class Pause {
 
 
     public void homeClicked(MouseEvent mouseEvent) {
+        GameAppManager.getInstance().home();
     }
 
     public void homeEntered(MouseEvent mouseEvent) {
@@ -31,7 +32,7 @@ public class Pause {
     }
 
     public void riprendiClicked(MouseEvent mouseEvent) {
-
+        GameAppManager.getInstance().resume();
     }
 
     public void riprendiEntered(MouseEvent mouseEvent) {

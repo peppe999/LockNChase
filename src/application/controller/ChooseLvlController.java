@@ -6,8 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import application.Main;
-import application.GameAppManager;
 
 import java.io.IOException;
 
@@ -30,12 +28,12 @@ public class ChooseLvlController  {
     }
 
     public void difficileExited(MouseEvent mouseEvent) {
-        difficile.setTextFill(Color.web("#ffffff", 0.8));
+        difficile.setTextFill(Color.web("#ffffff"));
         difficile.setFont(new Font(20.0));
     }
 
     public void sempliceClicked(MouseEvent mouseEvent) {
-        GameAppManager.getInstance().paus();
+        GameAppManager.getInstance().pause();
     }
 
     public void sempliceEntered(MouseEvent mouseEvent) {
@@ -44,7 +42,7 @@ public class ChooseLvlController  {
     }
 
     public void sempliceExited(MouseEvent mouseEvent) {
-        semplice.setTextFill(Color.web("#ffffff", 0.8));
+        semplice.setTextFill(Color.web("#ffffff"));
         semplice.setFont(new Font(20.0));
     }
 
@@ -59,7 +57,7 @@ public class ChooseLvlController  {
     }
 
     public void backExited(MouseEvent mouseEvent) {
-        back.setTextFill(Color.web("#ffffff", 0.8));
+        back.setTextFill(Color.web("#ffffff"));
         back.setFont(new Font(18.0));
     }
 }

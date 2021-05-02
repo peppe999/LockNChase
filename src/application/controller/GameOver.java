@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.GameAppManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -15,6 +16,7 @@ public class GameOver {
 
 
     public void homeClicked(MouseEvent mouseEvent) {
+        GameAppManager.getInstance().home();
     }
 
     public void homeEntered(MouseEvent mouseEvent) {
@@ -28,7 +30,7 @@ public class GameOver {
     }
 
     public void riprendiClicked(MouseEvent mouseEvent) {
-
+        GameAppManager.getInstance().startGame();
     }
 
     public void riprendiEntered(MouseEvent mouseEvent) {

@@ -7,7 +7,6 @@ import java.util.*;
 
 public class Game {
     private Integer mode;
-    private boolean pauseState;
     private Integer level;
     private Integer points;
     private Integer score;
@@ -19,6 +18,7 @@ public class Game {
     private boolean finished;
     private boolean playerDead;
     private boolean gameOver;
+    private boolean bonusLife;
 
     private TrappedEnemiesEvent trappedEnemiesEvent;
 
@@ -49,9 +49,11 @@ public class Game {
     private GameCharacter silly;
     private GameCharacter scaredy;
 
+    private NotifiableStates states;
+    public boolean money = false;
+
     public Game() {
         mode = GameMode.USER_MODE;
-        pauseState = false;
         level = 0;
         points = 0;
         score = 0;
@@ -67,7 +69,10 @@ public class Game {
         gameOver = false;
         playerAligned = false;
         finished = false;
+        bonusLife = false;
 
+        states = new NotifiableStates();
+        states.notifyState("startGame");
         initializeMap();
     }
 
@@ -187,15 +192,6 @@ public class Game {
             this.mode = mode;
     }
 
-    public void pause() {
-        pauseState = true;
-    }
-
-    public void resume() {
-        pauseState = false;
-    }
-
-
     private void beginningMovement() {
         startTimeout++;
         if(startTimeout < 84)
@@ -218,6 +214,8 @@ public class Game {
                     Coord coord = w.getCoord();
                     allowedCells[coord.getRow()][coord.getCol()] = false;
                 }
+
+                states.notifyState("doorClosed");
             }
         }
     }
@@ -236,13 +234,14 @@ public class Game {
 
     private void changeLevel() {
         level++;
-
         points = 0;
         resetVariables();
 
         initializeMap();
         playerAligned = true;
         player.setX(perimeterWalls.get(1).getCoord().getCol() * 8);
+
+        states.notifyState("newLvl");
     }
 
     private void levelFinishedBehaviour() {
@@ -285,6 +284,7 @@ public class Game {
             return;
         }
 
+        states.notifyState("startGame");
         resetVariables();
         resetElements();
 
@@ -336,6 +336,12 @@ public class Game {
         if(winFreeze)
             winFreeze = !stiffy.isActive() || !speedy.isActive() || !scaredy.isActive() || !silly.isActive();
 
+        if(!bonusLife && score >= 15000) {
+            lives++;
+            bonusLife = true;
+            states.notifyState("bonusLife");
+        }
+
         checkPlayerDeadState();
         checkWinState();
 
@@ -378,6 +384,7 @@ public class Game {
     private void showBonus() {
         if(points == 800 || points == 1400 || points == 2000 || points == 2600) {
             bag.show();
+            states.notifyState("bagSpawn");
         }
         else if(points == 1100 || points == 1700)
             bonusItem.show();
@@ -671,8 +678,10 @@ public class Game {
 
             System.out.println(trappedEnemies);
 
-            if(trappedEnemies > 0)
+            if(trappedEnemies > 0) {
                 score += trappedEnemiesEvent.startEvent(trappedEnemies);
+                states.notifyState("lockedEnemies");
+            }
         }
 
     }
@@ -694,6 +703,7 @@ public class Game {
                 allowedWalls.get(lastWall).closeWall(Wall.PLAYER_OWNER);
                 lastWall = null;
                 checkPlayerTrapsEnemies();
+                states.notifyState("doorClosed");
             }
         }
     }
@@ -786,6 +796,7 @@ public class Game {
 
     private void startEndFreeze() {
         dieFreeze = true;
+        states.notifyState("die");
         player.setFreezeTime(56);
         stiffy.setFreezeTime(56);
         speedy.setFreezeTime(56);
@@ -802,6 +813,7 @@ public class Game {
         scaredy.setFreezeTime(112);
         silly.setFreezeTime(112);
         finished = true;
+        states.notifyState("win");
 
         for(Wall w : perimeterWalls)
             w.closeWall(Wall.GAME_OWNER);
@@ -816,12 +828,13 @@ public class Game {
                 coins[pRow][pCol] = false;
                 points += 20;
                 score += 20;
-
+                states.notifyState("money");
                 showBonus();
             }
 
             if(bag.isActive() && !bag.isPicked() && bag.getCoord().equals(new Coord(pRow, pCol))) {
                 score += bag.takeBag();
+                states.notifyState("pickBag");
 
                 winFreeze = true;
                 player.setFreezeTime(112);
@@ -831,8 +844,10 @@ public class Game {
                 silly.setFreezeTime(168);
             }
 
-            if(bonusItem.isActive() && !bonusItem.isPicked() && bonusItem.getCoord().equals(new Coord(pRow, pCol)))
+            if(bonusItem.isActive() && !bonusItem.isPicked() && bonusItem.getCoord().equals(new Coord(pRow, pCol))) {
                 score += bonusItem.takeBag();
+                states.notifyState("pickLvlBonus");
+            }
         }
     }
 
@@ -1113,5 +1128,13 @@ public class Game {
 
     public TrappedEnemiesEvent getTrappedEnemiesEvent() {
         return trappedEnemiesEvent;
+    }
+
+    public NotifiableStates getStates() {
+        return states;
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
     }
 }

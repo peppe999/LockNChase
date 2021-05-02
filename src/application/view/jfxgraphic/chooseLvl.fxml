@@ -8,27 +8,27 @@
 
 <AnchorPane prefHeight="543.0" prefWidth="485.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ChooseLvlController">
    <children>
-      <ImageView fitHeight="485.0" fitWidth="462.0" layoutX="12.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="485.0" fitWidth="447.0" layoutX="21.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/lcc2.png" />
          </image>
       </ImageView>
-      <Label layoutX="90.0" layoutY="90.0" text="Livello di difficoltà?" textFill="WHITE">
+      <Label layoutX="92.0" layoutY="83.0" text="Livello di difficoltà?" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="back" layoutX="21.0" layoutY="14.0" onMouseClicked="#backClicked" onMouseEntered="#backEntered" onMouseExited="#backExited" text="back" textFill="WHITE">
+      <Label fx:id="back" layoutX="24.0" layoutY="17.0" onMouseClicked="#backClicked" onMouseEntered="#backEntered" onMouseExited="#backExited" text="Back" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="difficile" layoutX="193.0" layoutY="318.0" onMouseClicked="#difficileClicked" onMouseEntered="#difficileEntered" onMouseExited="#difficileExited" text="Difficile" textFill="WHITE">
+      <Label fx:id="difficile" layoutX="210.0" layoutY="287.0" onMouseClicked="#difficileClicked" onMouseEntered="#difficileEntered" onMouseExited="#difficileExited" text="Difficile" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="semplice" layoutX="193.0" layoutY="231.0" onMouseClicked="#sempliceClicked" onMouseEntered="#sempliceEntered" onMouseExited="#sempliceExited" prefHeight="30.0" prefWidth="90.0" text="Facile" textFill="WHITE">
+      <Label fx:id="semplice" layoutX="217.0" layoutY="204.0" onMouseClicked="#sempliceClicked" onMouseEntered="#sempliceEntered" onMouseExited="#sempliceExited" text="Facile" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

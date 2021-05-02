@@ -19,6 +19,7 @@ public class GameLoop extends AnimationTimer {
         if (currentNanoTime - previousTime >= frequency) {
             graphicSystem.update();
             previousTime = currentNanoTime;
+
         }
     }
 }

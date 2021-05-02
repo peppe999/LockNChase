@@ -31,7 +31,7 @@ public class ChooseModeController {
     }
 
     public void AIExited(MouseEvent mouseEvent) {
-        AI.setTextFill(Color.web("#ffffff", 0.8));
+        AI.setTextFill(Color.web("#ffffff"));
         AI.setFont(new Font(20.0));
     }
 
@@ -45,7 +45,7 @@ public class ChooseModeController {
     }
 
     public void ManualExited(MouseEvent mouseEvent) {
-        manual.setTextFill(Color.web("#ffffff", 0.8));
+        manual.setTextFill(Color.web("#ffffff"));
         manual.setFont(new Font(20.0));
     }
 
@@ -59,7 +59,7 @@ public class ChooseModeController {
     }
 
     public void backExited(MouseEvent mouseEvent) {
-        back.setTextFill(Color.web("#ffffff", 0.8));
+        back.setTextFill(Color.web("#ffffff"));
         back.setFont(new Font(18.0));
     }
 }

@@ -41,7 +41,7 @@ public class HomeController extends Application  {
     }
 
     public void mouseExitedExit(MouseEvent mouseEvent) {
-        exit.setTextFill(Color.web("#ffffff", 0.8));
+        exit.setTextFill(Color.web("#ffffff"));
     }
 
     public void mouseEnteredPlay(MouseEvent mouseEvent) {
@@ -50,7 +50,7 @@ public class HomeController extends Application  {
 
 
     public void mouseExitedPlay(MouseEvent mouseEvent) {
-        play.setTextFill(Color.web("#ffffff", 0.8));
+        play.setTextFill(Color.web("#ffffff"));
     }
 
     public void mouseEntered(DragEvent dragEvent) {

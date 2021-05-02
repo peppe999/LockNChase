@@ -1,5 +1,7 @@
 package application.controller;
 
+import application.AudioManager;
+import application.GameAppManager;
 import application.model.Direction;
 import application.model.Game;
 import application.model.GameMode;
@@ -33,7 +35,7 @@ public class KeyController implements EventHandler<KeyEvent> {
             }
 
             if(event.getCode() == KeyCode.ESCAPE) {
-                game.pause();
+                GameAppManager.getInstance().pause();
                 // Qui vediamo dopo okay?
             }
         }
