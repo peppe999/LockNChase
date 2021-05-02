@@ -50,7 +50,6 @@ public class Game {
     private GameCharacter scaredy;
 
     private NotifiableStates states;
-    public boolean money = false;
 
     public Game() {
         mode = GameMode.USER_MODE;
