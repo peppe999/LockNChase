@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.AudioManager;
 import application.GameAppManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -18,6 +19,7 @@ public class Pause {
 
 
     public void homeClicked(MouseEvent mouseEvent) {
+        AudioManager.getInstance().secondaryPlay("beep", false);
         GameAppManager.getInstance().home();
     }
 
@@ -32,6 +34,7 @@ public class Pause {
     }
 
     public void riprendiClicked(MouseEvent mouseEvent) {
+        AudioManager.getInstance().secondaryPlay("beep", false);
         GameAppManager.getInstance().resume();
     }
 

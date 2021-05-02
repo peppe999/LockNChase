@@ -1,13 +1,12 @@
 package application.controller;
 
+import application.AudioManager;
 import application.GameAppManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import application.Main;
-import application.GameAppManager;
 
 import java.io.IOException;
 
@@ -22,6 +21,7 @@ public class ChooseModeController {
     final double MAX_FONT_SIZE = 21.0;
 
     public void AIClicked(MouseEvent mouseEvent) throws IOException {
+        AudioManager.getInstance().secondaryPlay("beep", false);
         GameAppManager.getInstance().chooselvl();
     }
 
@@ -36,6 +36,7 @@ public class ChooseModeController {
     }
 
     public void ManualClicked(MouseEvent mouseEvent) {
+        AudioManager.getInstance().secondaryPlay("beep", false);
         GameAppManager.getInstance().startGame();
     }
 
@@ -51,6 +52,7 @@ public class ChooseModeController {
 
     public void backClicked(MouseEvent mouseEvent) throws IOException {
         GameAppManager.getInstance().home();
+        AudioManager.getInstance().secondaryPlay("beep", false);
     }
 
     public void backEntered(MouseEvent mouseEvent) {

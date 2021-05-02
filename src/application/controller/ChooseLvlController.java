@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.AudioManager;
 import application.GameAppManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -20,6 +21,7 @@ public class ChooseLvlController  {
 
 
     public void difficileClicked(MouseEvent mouseEvent) {
+        AudioManager.getInstance().secondaryPlay("beep", false);
     }
 
     public void difficileEntered(MouseEvent mouseEvent) {
@@ -33,7 +35,8 @@ public class ChooseLvlController  {
     }
 
     public void sempliceClicked(MouseEvent mouseEvent) {
-        GameAppManager.getInstance().pause();
+        AudioManager.getInstance().secondaryPlay("beep", false);
+        //GameAppManager.getInstance().pause();
     }
 
     public void sempliceEntered(MouseEvent mouseEvent) {
@@ -48,7 +51,8 @@ public class ChooseLvlController  {
 
 
     public void backClicked(MouseEvent mouseEvent) throws IOException {
-       GameAppManager.getInstance().chooseMode();
+        AudioManager.getInstance().secondaryPlay("beep", false);
+        GameAppManager.getInstance().chooseMode();
     }
 
     public void backEntered(MouseEvent mouseEvent) {

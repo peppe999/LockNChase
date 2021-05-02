@@ -43,7 +43,7 @@ public class GameAppManager {
         try {
             root = FXMLLoader.load(getClass().getResource("view/jfxgraphic/home.fxml"));
             stage.setScene(new Scene(root));
-            audioManager.homeMedia();
+            //audioManager.homeMedia();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,7 +102,7 @@ public class GameAppManager {
         stage.setScene(gameScene);
         gameLoop = new GameLoop(gp);
         gameLoop.start();
-        audioManager.runMedia();
+        //audioManager.runMedia();
     }
 
     public void gameOver() {

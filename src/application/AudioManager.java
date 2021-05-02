@@ -1,11 +1,7 @@
 package application;
 
-import javafx.concurrent.ScheduledService;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -56,6 +52,8 @@ public class AudioManager {
         collection.put("run", media);
         media = new Media(Paths.get("src/application/resources/sound/win.mp3").toUri().toString());
         collection.put("win", media);
+        media = new Media(Paths.get("src/application/resources/sound/beep.mp3").toUri().toString());
+        collection.put("beep", media);
     }
 
     public static AudioManager getInstance() {
@@ -73,10 +71,12 @@ public class AudioManager {
     }
 
     public void primaryPlay(String soundName, boolean autoRepeat, String nextSound, boolean stopAll) {
-        primaryPlayer.stop();
+        if(primaryPlayer != null) {
+            primaryPlayer.stop();
 
-        if(stopAll)
-            stopAll();
+            if (stopAll)
+                stopAll();
+        }
 
         primaryPlayer = new MediaPlayer(collection.get(soundName));
 
@@ -121,7 +121,7 @@ public class AudioManager {
         }
     }
 
-    public  void homeMedia(){
+    /*public  void homeMedia(){
         if(status == false) {
             status = true;
             primaryPlayer = new MediaPlayer(collection.get("startGame"));
@@ -146,7 +146,7 @@ public class AudioManager {
                 primaryPlayer.play();
 
             }
-        });
+        });*/
         /*primaryPlayer.setOnEndOfMedia( new Thread(new Runnable() {
             @Override
             public void run() {
@@ -161,9 +161,10 @@ public class AudioManager {
             public void run() {
                 primaryPlayer.seek(primaryPlayer.getStartTime());
             }
-        });*/
+        });
+
     }
-/*
+
     public  void win(){
         secondaryPlayer = new MediaPlayer(collection.get("win"));
         secondaryPlayer.play();
