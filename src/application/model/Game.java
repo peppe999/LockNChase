@@ -690,6 +690,9 @@ public class Game {
     }
 
     public void closePlayerWall() {
+        if(dieFreeze || playerDead || beginning || winFreeze)
+            return;
+
         if(lastWall != null && activePlayerWallsIndexes.size() < 2 && !activePlayerWallsIndexes.contains(lastWall) && !activeGameWallsIndexes.contains(lastWall)) {
             Wall w = allowedWalls.get(lastWall);
             boolean isStiffyPos = isCharacterOnWall(stiffy, w);
