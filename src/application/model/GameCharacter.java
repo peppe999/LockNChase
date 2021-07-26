@@ -11,10 +11,11 @@ public class GameCharacter {
 
     private Integer freezeTime;
     private boolean active;
-
+    private boolean imminentRestart;
 
     public GameCharacter() {
         active = true;
+        imminentRestart = false;
         freezeTime = 0;
     }
 
@@ -77,6 +78,7 @@ public class GameCharacter {
 
     public void setFreezeTime(Integer time) {
         freezeTime = time;
+        imminentRestart = false;
         active = false;
     }
 
@@ -86,9 +88,17 @@ public class GameCharacter {
 
         freezeTime--;
 
+        if(freezeTime <= 60)
+            imminentRestart = true;
+
         if(freezeTime <= 0) {
             freezeTime = 0;
             active = true;
+            imminentRestart = false;
         }
+    }
+
+    public boolean isImminentRestart() {
+        return imminentRestart;
     }
 }

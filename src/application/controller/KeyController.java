@@ -20,7 +20,7 @@ public class KeyController implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
         if(event.getEventType().equals(KeyEvent.KEY_PRESSED)) {
-            if(game.getMode().equals(GameMode.USER_MODE)) {
+            if(GameAppManager.getInstance().getMode().equals(GameMode.USER_MODE)) {
                 if (event.getCode() == KeyCode.RIGHT) {
                     game.setNewPlayerDirection(Direction.RIGHT);
                 } else if (event.getCode() == KeyCode.LEFT) {
@@ -36,7 +36,6 @@ public class KeyController implements EventHandler<KeyEvent> {
 
             if(event.getCode() == KeyCode.ESCAPE) {
                 GameAppManager.getInstance().pause();
-                // Qui vediamo dopo okay?
             }
         }
     }

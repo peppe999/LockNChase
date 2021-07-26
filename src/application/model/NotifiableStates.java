@@ -14,7 +14,7 @@ public class NotifiableStates {
 
     private void loadDefaultStates() {
         states.put("startGame", false);
-        states.put("bonusLife", false);     // manchi tu
+        states.put("bonusLife", false);
         states.put("die", false);
         states.put("doorClosed", false);
         states.put("bagSpawn", false);

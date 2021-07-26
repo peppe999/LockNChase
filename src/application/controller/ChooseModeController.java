@@ -2,6 +2,7 @@ package application.controller;
 
 import application.AudioManager;
 import application.GameAppManager;
+import application.model.GameMode;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -37,6 +38,7 @@ public class ChooseModeController {
 
     public void ManualClicked(MouseEvent mouseEvent) {
         AudioManager.getInstance().secondaryPlay("beep", false);
+        GameAppManager.getInstance().setMode(GameMode.USER_MODE);
         GameAppManager.getInstance().startGame();
     }
 

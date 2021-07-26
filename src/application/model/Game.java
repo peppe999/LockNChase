@@ -1,12 +1,9 @@
 package application.model;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 public class Game {
-    private Integer mode;
     private Integer level;
     private Integer points;
     private Integer score;
@@ -38,6 +35,7 @@ public class Game {
     private List<Integer> activeGameWallsIndexes;
     private List<Integer> activePlayerWallsIndexes;
     private List<Integer> candidateLockingWalls;
+    private List<Coord> criticalPositions;
 
     private GameCharacter player;
     private Integer newPlayerDirection;
@@ -52,7 +50,6 @@ public class Game {
     private NotifiableStates states;
 
     public Game() {
-        mode = GameMode.USER_MODE;
         level = 0;
         points = 0;
         score = 0;
@@ -87,9 +84,12 @@ public class Game {
         centralWallsIndexes = new ArrayList<>();
         candidateLockingWalls = new ArrayList<>();
         trappedEnemiesEvent = new TrappedEnemiesEvent();
+        criticalPositions = new ArrayList<>();
 
         try {
             int rIndex = 0;
+            PrintWriter writer = new PrintWriter(new FileWriter("fatti.txt"));
+            String outputFile = "";
             while (mapFile.ready()) {
                 String row = mapFile.readLine();
                 String[] cols = row.split(" ");
@@ -97,7 +97,14 @@ public class Game {
                     char value = cols[i].charAt(0);
 
                     allowedCells[rIndex][i] = value != 'N';
-                    coins[rIndex][i] = value == 'C';
+                    if(allowedCells[rIndex][i])
+                        outputFile += "allowedCells(" + rIndex + ", " + i + "). ";
+
+
+                    coins[rIndex][i] = (value == 'C' || value == 'c');
+
+                    if(value == 'e' || value == 'c' || value == 'v' || value == 'h' || value == 'x' || value == '3' || value == '4')
+                        criticalPositions.add(new Coord(rIndex, i));
 
                     double inc = (level < 4) ? 0.025 * level : 0.1;
                     int dec = (level < 4) ? 28 * level : 28 * 4;
@@ -147,7 +154,7 @@ public class Game {
                         else if(value == 'h')
                             candidateLockingWalls.add(allowedWalls.size() - 1);
                     }
-                    else if(value == 'V' || value == 'v') {
+                    else if(value == 'V' || value == 'v' || value == 'x') {
                         Wall w = new Wall(Wall.VERTICAL_WALL, new Coord(rIndex, i));
                         allowedWalls.add(w);
                         wallsIndexesMapping.put(new Coord(rIndex, i), allowedWalls.size() - 1);
@@ -163,8 +170,16 @@ public class Game {
                         bonusItem = new BonusItem(new Coord(rIndex, i), level);
                     }
                 }
+                outputFile += "\n";
                 rIndex++;
             }
+
+            outputFile += "arc(" + (11 * allowedCells[0].length) + ", " + (12 * allowedCells[0].length - 1) +  "). ";
+            outputFile += "arc(" + (12 * allowedCells[0].length - 1) + ", " + (11 * allowedCells[0].length) +  ").";
+            writer.print(outputFile);
+            writer.flush();
+            writer.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -180,15 +195,6 @@ public class Game {
         player.setSpeed(0.9);
         player.setDirection(Direction.UP);
         newPlayerDirection = player.getDirection();
-    }
-
-    public Integer getMode() {
-        return mode;
-    }
-
-    public void setMode(Integer mode) {
-        if(mode.equals(GameMode.USER_MODE) || mode.equals(GameMode.AI_MODE))
-            this.mode = mode;
     }
 
     private void beginningMovement() {
@@ -502,45 +508,130 @@ public class Game {
         return allowedCells[0].length;
     }
 
-    private void checkDirection() {
+    private double checkDirection() {
         boolean tunnel = ((int)player.getY() / 8 == 11 && ((int)(player.getX() / 8) >= allowedCells[0].length - 1 || (int)(player.getX() / 8) <= 0));
         if(!player.getDirection().equals(newPlayerDirection)) {
             if(player.getDirection() % 2 == newPlayerDirection % 2) {
                 player.setDirection(newPlayerDirection);
                 lastWallTemp = null;
-                return;
+                return 0;
             }
 
-            if((int)player.getX() % 8 != 0 || (int)player.getY() % 8 != 0) {
-                return;
-            }
+            /*if((int)player.getX() % 8 != 0 || ((int) player.getY() % 8 == 4)) {
+                return 0;
+            }*/
 
             if(newPlayerDirection.equals(Direction.LEFT)) {
-                if(tunnel || allowedCells[(int)player.getY() / 8][(int)(player.getX() / 8) - 1]) {
+                int rowModuloOffset = (int) player.getY() % 8;
+                if(player.getDirection().equals(Direction.UP) && (rowModuloOffset >= 7)) {
+                    if(tunnel || allowedCells[(int)(player.getY() / 8) + 1][(int)(player.getX() / 8) - 1]) {
+                        double offset = (((int)(player.getY() / 8) + 1) * 8) - player.getY();
+                        player.setY(((int)(player.getY() / 8) + 1) * 8);
+                        player.setDirection(newPlayerDirection);
+                        lastWallTemp = null;
+
+                        return offset;
+                    }
+                }
+                else if(player.getDirection().equals(Direction.DOWN) && (rowModuloOffset <= 1)) {
+                    if(tunnel || allowedCells[(int)(player.getY() / 8)][(int)(player.getX() / 8) - 1]) {
+                        double offset = player.getY() - (((int)(player.getY() / 8)) * 8);
+                        player.setY(((int)(player.getY() / 8)) * 8);
+                        player.setDirection(newPlayerDirection);
+                        lastWallTemp = null;
+
+                        return offset;
+                    }
+                }
+                else if(rowModuloOffset == 0 && (tunnel || allowedCells[(int)player.getY() / 8][(int)(player.getX() / 8) - 1])) {
                     player.setDirection(newPlayerDirection);
                     lastWallTemp = null;
                 }
             }
             else if(newPlayerDirection.equals(Direction.RIGHT)) {
-                if(tunnel || allowedCells[(int)player.getY() / 8][(int)(player.getX() / 8) + 1]) {
+                int rowModuloOffset = (int) player.getY() % 8;
+                if(player.getDirection().equals(Direction.UP) && (rowModuloOffset >= 7)) {
+                    if(tunnel || allowedCells[(int)(player.getY() / 8) + 1][(int)(player.getX() / 8) + 1]) {
+                        double offset = (((int)(player.getY() / 8) + 1) * 8) - player.getY();
+                        player.setY(((int)(player.getY() / 8) + 1) * 8);
+                        player.setDirection(newPlayerDirection);
+                        lastWallTemp = null;
+
+                        return offset;
+                    }
+                }
+                else if(player.getDirection().equals(Direction.DOWN) && (rowModuloOffset <= 1)) {
+                    if(tunnel || allowedCells[(int)(player.getY() / 8)][(int)(player.getX() / 8) + 1]) {
+                        double offset = player.getY() - (((int)(player.getY() / 8)) * 8);
+                        player.setY(((int)(player.getY() / 8)) * 8);
+                        player.setDirection(newPlayerDirection);
+                        lastWallTemp = null;
+
+                        return offset;
+                    }
+                }
+                else if(rowModuloOffset == 0 && (tunnel || allowedCells[(int)player.getY() / 8][(int)(player.getX() / 8) + 1])) {
                     player.setDirection(newPlayerDirection);
                     lastWallTemp = null;
                 }
             }
-            if(newPlayerDirection.equals(Direction.DOWN)) {
-                if(!tunnel && (allowedCells[(int)(player.getY() / 8) + 1][(int)player.getX() / 8] || (!perimeterWalls.get(1).isClosed() && new Coord((int)(player.getY() / 8) + 1, (int)player.getX() / 8).equals(perimeterWalls.get(1).getCoord())))) {
+            else if(newPlayerDirection.equals(Direction.DOWN)) {
+                int colModuloOffset = (int) player.getX() % 8;
+                if(player.getDirection().equals(Direction.LEFT) && (colModuloOffset >= 7)) {
+                    if(!tunnel && (allowedCells[(int)(player.getY() / 8) + 1][(int)(player.getX() / 8) + 1] || (!perimeterWalls.get(1).isClosed() && new Coord((int)(player.getY() / 8) + 1, (int)(player.getX() / 8) + 1).equals(perimeterWalls.get(1).getCoord())))) {
+                        double offset = (((int)(player.getX() / 8) + 1) * 8) - player.getX();
+                        player.setX(((int)(player.getX() / 8) + 1) * 8);
+                        player.setDirection(newPlayerDirection);
+                        lastWallTemp = null;
+
+                        return offset;
+                    }
+                }
+                else if(player.getDirection().equals(Direction.RIGHT) && (colModuloOffset <= 1)) {
+                    if(!tunnel && (allowedCells[(int)(player.getY() / 8) + 1][(int)player.getX() / 8] || (!perimeterWalls.get(1).isClosed() && new Coord((int)(player.getY() / 8) + 1, (int)player.getX() / 8).equals(perimeterWalls.get(1).getCoord())))) {
+                        double offset = player.getX() - (((int)(player.getX() / 8)) * 8);
+                        player.setX(((int)(player.getX() / 8)) * 8);
+                        player.setDirection(newPlayerDirection);
+                        lastWallTemp = null;
+
+                        return offset;
+                    }
+                }
+                else if(colModuloOffset == 0 && !tunnel && (allowedCells[(int)(player.getY() / 8) + 1][(int)player.getX() / 8] || (!perimeterWalls.get(1).isClosed() && new Coord((int)(player.getY() / 8) + 1, (int)player.getX() / 8).equals(perimeterWalls.get(1).getCoord())))) {
                     player.setDirection(newPlayerDirection);
                     lastWallTemp = null;
                 }
             }
             else if(newPlayerDirection.equals(Direction.UP)) {
-                if(!tunnel && (allowedCells[(int)(player.getY() / 8) - 1][(int)player.getX() / 8] || (!perimeterWalls.get(0).isClosed() && new Coord((int)(player.getY() / 8) - 1, (int)player.getX() / 8).equals(perimeterWalls.get(0).getCoord())))) {
+                int colModuloOffset = (int) player.getX() % 8;
+                if(player.getDirection().equals(Direction.LEFT) && (colModuloOffset >= 7)) {
+                    if(!tunnel && (allowedCells[(int)(player.getY() / 8) - 1][(int)(player.getX() / 8) + 1] || (!perimeterWalls.get(1).isClosed() && new Coord((int)(player.getY() / 8) - 1, (int)(player.getX() / 8) + 1).equals(perimeterWalls.get(1).getCoord())))) {
+                        double offset = (((int)(player.getX() / 8) + 1) * 8) - player.getX();
+                        player.setX(((int)(player.getX() / 8) + 1) * 8);
+                        player.setDirection(newPlayerDirection);
+                        lastWallTemp = null;
+
+                        return offset;
+                    }
+                }
+                else if(player.getDirection().equals(Direction.RIGHT) && (colModuloOffset <= 1)) {
+                    if(!tunnel && (allowedCells[(int)(player.getY() / 8) - 1][(int)player.getX() / 8] || (!perimeterWalls.get(1).isClosed() && new Coord((int)(player.getY() / 8) - 1, (int)player.getX() / 8).equals(perimeterWalls.get(1).getCoord())))) {
+                        double offset = player.getX() - (((int)(player.getX() / 8)) * 8);
+                        player.setX(((int)(player.getX() / 8)) * 8);
+                        player.setDirection(newPlayerDirection);
+                        lastWallTemp = null;
+
+                        return offset;
+                    }
+                }
+                else if(colModuloOffset == 0 && !tunnel && (allowedCells[(int)(player.getY() / 8) - 1][(int)player.getX() / 8] || (!perimeterWalls.get(0).isClosed() && new Coord((int)(player.getY() / 8) - 1, (int)player.getX() / 8).equals(perimeterWalls.get(0).getCoord())))) {
                     player.setDirection(newPlayerDirection);
                     lastWallTemp = null;
                 }
             }
 
         }
+        return 0;
     }
 
     public double moveCharacter(GameCharacter character, double speed) {
@@ -860,7 +951,12 @@ public class Game {
         }
 
         double offset = moveCharacter(player, player.getSpeed());
-        checkDirection();
+        double dirOffset = checkDirection();
+
+        if(dirOffset > 0) {
+            offset = dirOffset;
+            System.out.println(offset);
+        }
 
         afterPlayerMovementChecks();
 
@@ -1138,5 +1234,17 @@ public class Game {
 
     public boolean isGameOver() {
         return gameOver;
+    }
+
+    public Integer getLastWall() {
+        return lastWall;
+    }
+
+    public boolean isValidPosition(int r, int c) {
+        return (r >= 0 && r < getRowsNum() && c >= 0 && c < getColsNum() && allowedCells[r][c]) || (r == 11 && (c == -2 || c == -1 || c == 30 || c == 31));
+    }
+
+    public List<Coord> getCriticalPositions() {
+        return criticalPositions;
     }
 }

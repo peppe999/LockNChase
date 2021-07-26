@@ -1,5 +1,6 @@
 package application;
 
+import application.ai.AIPlayer;
 import application.model.Game;
 import application.model.GameMode;
 import application.view.jfxgraphic.GraphicPanel;
@@ -14,6 +15,7 @@ public class GameAppManager {
     private static GameAppManager instance = null;
     private Stage stage;
     private AudioManager audioManager;
+    private Integer mode;
 
     private Scene gameScene;
     private GameLoop gameLoop;
@@ -26,6 +28,15 @@ public class GameAppManager {
 
     public void setStage(Stage s) {
         stage = s;
+    }
+
+    public void setMode(Integer mode) {
+        if(mode.equals(GameMode.USER_MODE) || mode.equals(GameMode.AI_MODE_BEGINNER) || mode.equals(GameMode.AI_MODE_EXPERT))
+            this.mode = mode;
+    }
+
+    public Integer getMode() {
+        return mode;
     }
 
     public static GameAppManager getInstance(){
@@ -96,11 +107,17 @@ public class GameAppManager {
 
     public void startGame() {
         Game game = new Game();
-        game.setMode(GameMode.USER_MODE);
         GraphicPanel gp = new GraphicPanel(game);
         gameScene = new Scene(gp);
         stage.setScene(gameScene);
-        gameLoop = new GameLoop(gp);
+
+        AIPlayer aiPlayer = null;
+
+        if(mode.equals(GameMode.AI_MODE_EXPERT) || mode.equals(GameMode.AI_MODE_BEGINNER)) {
+            aiPlayer = new AIPlayer(game, mode);
+        }
+
+        gameLoop = new GameLoop(gp, aiPlayer);
         gameLoop.start();
         //audioManager.runMedia();
     }

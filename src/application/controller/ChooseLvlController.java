@@ -2,6 +2,7 @@ package application.controller;
 
 import application.AudioManager;
 import application.GameAppManager;
+import application.model.GameMode;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -22,6 +23,8 @@ public class ChooseLvlController  {
 
     public void difficileClicked(MouseEvent mouseEvent) {
         AudioManager.getInstance().secondaryPlay("beep", false);
+        GameAppManager.getInstance().setMode(GameMode.AI_MODE_EXPERT);
+        GameAppManager.getInstance().startGame();
     }
 
     public void difficileEntered(MouseEvent mouseEvent) {
@@ -36,6 +39,8 @@ public class ChooseLvlController  {
 
     public void sempliceClicked(MouseEvent mouseEvent) {
         AudioManager.getInstance().secondaryPlay("beep", false);
+        GameAppManager.getInstance().setMode(GameMode.AI_MODE_BEGINNER);
+        GameAppManager.getInstance().startGame();
         //GameAppManager.getInstance().pause();
     }
 
