@@ -215,7 +215,7 @@ public class AIPlayer {
 
         finished = false;
         InputProgram program = new ASPInputProgram();
-        program.addFilesPath("src/application/resources/lib/prova6.txt");
+        program.addFilesPath("src/application/resources/lib/prova7.txt");
         String myFacts = "";
         handler.removeAll();
         OptionDescriptor optionDescriptor = new OptionDescriptor("-n 100 --no-facts");
@@ -254,6 +254,10 @@ public class AIPlayer {
                 break;
         }
 
+        myFacts += getDirection(game.getStiffy().getDirection(), "stiffy");
+        myFacts += getDirection(game.getScaredy().getDirection(), "scaredy");
+        myFacts += getDirection(game.getSpeedy().getDirection(), "speedy");
+        myFacts += getDirection(game.getSilly().getDirection(), "silly");
 
         // NUMBER OF WALLS CLOSED BY PLAYER
         myFacts += "closedWalls(" + game.getActivePlayerWallsIndexes().size() + "). ";
@@ -437,4 +441,25 @@ public class AIPlayer {
         }*/
 
     }
+
+
+    public String getDirection(Integer i, String s){
+
+        switch (i) {
+            case 0:
+                return "direzioneNemico(up, "+s+"). ";
+
+            case 1:
+                return "direzioneNemico(right, "+s+"). ";
+
+            case 2:
+                return  "direzioneNemico(down, "+s+"). ";
+
+            case 3:
+                return "direzioneNemico(left, "+s+"). ";
+        }
+
+        return "";
+    }
+
 }
