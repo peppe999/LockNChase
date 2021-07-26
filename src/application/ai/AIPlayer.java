@@ -447,16 +447,16 @@ public class AIPlayer {
 
         switch (i) {
             case 0:
-                return "direzioneNemico(up, "+s+"). ";
+                return "direzioneNemico(up, " + s + "). ";
 
             case 1:
-                return "direzioneNemico(right, "+s+"). ";
+                return "direzioneNemico(right, " + s + "). ";
 
             case 2:
-                return  "direzioneNemico(down, "+s+"). ";
+                return  "direzioneNemico(down, " + s + "). ";
 
             case 3:
-                return "direzioneNemico(left, "+s+"). ";
+                return "direzioneNemico(left, " + s + "). ";
         }
 
         return "";

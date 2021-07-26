@@ -23,7 +23,8 @@ public class ChooseModeController {
 
     public void AIClicked(MouseEvent mouseEvent) throws IOException {
         AudioManager.getInstance().secondaryPlay("beep", false);
-        GameAppManager.getInstance().chooselvl();
+        GameAppManager.getInstance().setMode(GameMode.AI_MODE);
+        GameAppManager.getInstance().startGame();
     }
 
     public void AIEntered(MouseEvent mouseEvent) {
