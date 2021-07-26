@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -8,24 +8,28 @@
 
 <AnchorPane prefHeight="543.0" prefWidth="485.0" style="-fx-background-color: #000000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ChooseModeController">
    <children>
-      <ImageView fitHeight="496.0" fitWidth="485.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="485.0" fitWidth="447.0" layoutX="21.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/lcc2.png" />
          </image>
       </ImageView>
-      <Label fx:id="manual" layoutX="190.0" layoutY="323.0" onMouseClicked="#ManualClicked" onMouseEntered="#ManualEntered" onMouseExited="#ManualExited" text="Manuale" textFill="#fffdfd">
+      <Label fx:id="manual" layoutX="204.0" layoutY="287.0" onMouseClicked="#ManualClicked" onMouseEntered="#ManualEntered" onMouseExited="#ManualExited" text="Manuale" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <Label fx:id="AI" layoutX="134.0" layoutY="233.0" onMouseClicked="#AIClicked" onMouseEntered="#AIEntered" onMouseExited="#AIExited" text="Intelligenza Artificiale" textFill="WHITE">
+      <Label fx:id="AI" layoutX="148.0" layoutY="204.0" onMouseClicked="#AIClicked" onMouseEntered="#AIEntered" onMouseExited="#AIExited" text="Intelligenza Artificiale" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <Label layoutX="103.0" layoutY="93.0" text="Modalità di gioco" textFill="WHITE">
+      <Label layoutX="103.0" layoutY="83.0" text="Modalità di gioco" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="back" layoutX="14.0" layoutY="14.0" onMouseClicked="#backClicked" onMouseEntered="#backEntered" onMouseExited="#backExited" prefHeight="21.0" prefWidth="49.0" text="Back" textFill="WHITE" />
+      <Label fx:id="back" layoutX="24.0" layoutY="17.0" onMouseClicked="#backClicked" onMouseEntered="#backEntered" onMouseExited="#backExited" text="Back" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -1,0 +1,139 @@
+nodo(1003,11,-1). nodo(1002,11,-2). nodo(1002,11,31). nodo(1001,11,30). nodo(0,0,0). nodo(1,0,1). nodo(2,0,2). nodo(3,0,3). nodo(4,0,4). nodo(5,0,5). nodo(6,0,6). nodo(7,0,7). nodo(8,0,8). nodo(9,0,9). nodo(10,0,10). nodo(11,0,11). nodo(12,0,12). nodo(13,0,13). nodo(14,0,14). nodo(15,0,15). nodo(16,0,16). nodo(17,0,17). nodo(18,0,18). nodo(19,0,19). nodo(20,0,20). nodo(21,0,21). nodo(22,0,22). nodo(23,0,23). nodo(24,0,24). nodo(25,0,25). nodo(26,0,26). nodo(27,0,27). nodo(28,0,28). nodo(29,0,29). nodo(38,1,8). nodo(68,2,8). nodo(94,3,4). nodo(95,3,5). nodo(96,3,6). nodo(97,3,7). nodo(98,3,8). nodo(99,3,9). nodo(100,3,10). nodo(101,3,11). nodo(102,3,12). nodo(103,3,13). nodo(104,3,14). nodo(105,3,15). nodo(106,3,16). nodo(107,3,17). nodo(108,3,18). nodo(109,3,19). nodo(110,3,20). nodo(111,3,21). nodo(112,3,22). nodo(113,3,23). nodo(114,3,24). nodo(124,4,4). nodo(132,4,12). nodo(136,4,16). nodo(140,4,20). nodo(144,4,24). nodo(154,5,4). nodo(162,5,12). nodo(166,5,16). nodo(170,5,20). nodo(174,5,24). nodo(184,6,4). nodo(192,6,12). nodo(196,6,16). nodo(200,6,20). nodo(204,6,24). nodo(214,7,4). nodo(215,7,5). nodo(216,7,6). nodo(217,7,7). nodo(218,7,8). nodo(219,7,9). nodo(220,7,10). nodo(221,7,11). nodo(222,7,12). nodo(223,7,13). nodo(224,7,14). nodo(225,7,15). nodo(226,7,16). nodo(227,7,17). nodo(228,7,18). nodo(229,7,19). nodo(230,7,20). nodo(231,7,21). nodo(232,7,22). nodo(233,7,23). nodo(234,7,24). nodo(244,8,4). nodo(248,8,8). nodo(252,8,12). nodo(256,8,16). nodo(260,8,20). nodo(274,9,4). nodo(278,9,8). nodo(282,9,12). nodo(286,9,16). nodo(290,9,20). nodo(304,10,4). nodo(308,10,8). nodo(312,10,12). nodo(316,10,16). nodo(320,10,20). nodo(330,11,0). nodo(331,11,1). nodo(332,11,2). nodo(333,11,3). nodo(334,11,4). nodo(335,11,5). nodo(336,11,6). nodo(337,11,7). nodo(338,11,8). nodo(342,11,12). nodo(343,11,13). nodo(344,11,14). nodo(345,11,15). nodo(346,11,16). nodo(350,11,20). nodo(351,11,21). nodo(352,11,22). nodo(353,11,23). nodo(354,11,24). nodo(355,11,25). nodo(356,11,26). nodo(357,11,27). nodo(358,11,28). nodo(359,11,29). nodo(364,12,4). nodo(368,12,8). nodo(372,12,12). nodo(376,12,16). nodo(380,12,20). nodo(384,12,24). nodo(394,13,4). nodo(398,13,8). nodo(402,13,12). nodo(406,13,16). nodo(410,13,20). nodo(414,13,24). nodo(424,14,4). nodo(428,14,8). nodo(432,14,12). nodo(436,14,16). nodo(440,14,20). nodo(444,14,24). nodo(452,15,2). nodo(453,15,3). nodo(454,15,4). nodo(455,15,5). nodo(456,15,6). nodo(457,15,7). nodo(458,15,8). nodo(459,15,9). nodo(460,15,10). nodo(461,15,11). nodo(462,15,12). nodo(463,15,13). nodo(464,15,14). nodo(465,15,15). nodo(466,15,16). nodo(467,15,17). nodo(468,15,18). nodo(469,15,19). nodo(470,15,20). nodo(471,15,21). nodo(472,15,22). nodo(473,15,23). nodo(474,15,24). nodo(475,15,25). nodo(476,15,26). nodo(477,15,27). nodo(484,16,4). nodo(488,16,8). nodo(492,16,12). nodo(496,16,16). nodo(500,16,20). nodo(504,16,24). nodo(514,17,4). nodo(518,17,8). nodo(522,17,12). nodo(526,17,16). nodo(530,17,20). nodo(534,17,24). nodo(544,18,4). nodo(548,18,8). nodo(552,18,12). nodo(556,18,16). nodo(560,18,20). nodo(564,18,24). nodo(574,19,4). nodo(578,19,8). nodo(579,19,9). nodo(580,19,10). nodo(581,19,11). nodo(582,19,12). nodo(586,19,16). nodo(587,19,17). nodo(588,19,18). nodo(589,19,19). nodo(590,19,20). nodo(594,19,24). nodo(604,20,4). nodo(608,20,8). nodo(612,20,12). nodo(616,20,16). nodo(620,20,20). nodo(624,20,24). nodo(634,21,4). nodo(638,21,8). nodo(642,21,12). nodo(646,21,16). nodo(650,21,20). nodo(654,21,24). nodo(664,22,4). nodo(668,22,8). nodo(672,22,12). nodo(676,22,16). nodo(680,22,20). nodo(684,22,24). nodo(694,23,4). nodo(695,23,5). nodo(696,23,6). nodo(697,23,7). nodo(698,23,8). nodo(699,23,9). nodo(700,23,10). nodo(701,23,11). nodo(702,23,12). nodo(703,23,13). nodo(704,23,14). nodo(705,23,15). nodo(706,23,16). nodo(707,23,17). nodo(708,23,18). nodo(709,23,19). nodo(710,23,20). nodo(711,23,21). nodo(712,23,22). nodo(713,23,23). nodo(714,23,24). nodo(740,24,20). nodo(770,25,20). nodo(780,26,0). nodo(781,26,1). nodo(782,26,2). nodo(783,26,3). nodo(784,26,4). nodo(785,26,5). nodo(786,26,6). nodo(787,26,7). nodo(788,26,8). nodo(789,26,9). nodo(790,26,10). nodo(791,26,11). nodo(792,26,12). nodo(793,26,13). nodo(794,26,14). nodo(795,26,15). nodo(796,26,16). nodo(797,26,17). nodo(798,26,18). nodo(799,26,19). nodo(800,26,20). nodo(801,26,21). nodo(802,26,22). nodo(803,26,23). nodo(804,26,24). nodo(805,26,25). nodo(806,26,26). nodo(807,26,27). nodo(808,26,28). nodo(809,26,29). arc(330,1003). arc(1003,1002). arc(1002,1001). arc(1,0). arc(2,1). arc(3,2). arc(4,3). arc(5,4). arc(6,5). arc(7,6). arc(8,7). arc(9,8). arc(10,9). arc(11,10). arc(12,11). arc(13,12). arc(14,13). arc(15,14). arc(16,15). arc(17,16). arc(18,17). arc(19,18). arc(20,19). arc(21,20). arc(22,21). arc(23,22). arc(24,23). arc(25,24). arc(26,25). arc(27,26). arc(28,27). arc(29,28). arc(95,94). arc(96,95). arc(97,96). arc(98,97). arc(99,98). arc(100,99). arc(101,100). arc(102,101). arc(103,102). arc(104,103). arc(105,104). arc(106,105). arc(107,106). arc(108,107). arc(109,108). arc(110,109). arc(111,110). arc(112,111). arc(113,112). arc(114,113). arc(215,214). arc(216,215). arc(217,216). arc(218,217). arc(219,218). arc(220,219). arc(221,220). arc(222,221). arc(223,222). arc(224,223). arc(225,224). arc(226,225). arc(227,226). arc(228,227). arc(229,228). arc(230,229). arc(231,230). arc(232,231). arc(233,232). arc(234,233). arc(331,330). arc(332,331). arc(333,332). arc(334,333). arc(335,334). arc(336,335). arc(337,336). arc(338,337). arc(343,342). arc(344,343). arc(345,344). arc(346,345). arc(351,350). arc(352,351). arc(353,352). arc(354,353). arc(355,354). arc(356,355). arc(357,356). arc(358,357). arc(359,358). arc(1001,359). arc(453,452). arc(454,453). arc(455,454). arc(456,455). arc(457,456). arc(458,457). arc(459,458). arc(460,459). arc(461,460). arc(462,461). arc(463,462). arc(464,463). arc(465,464). arc(466,465). arc(467,466). arc(468,467). arc(469,468). arc(470,469). arc(471,470). arc(472,471). arc(473,472). arc(474,473). arc(475,474). arc(476,475). arc(477,476). arc(579,578). arc(580,579). arc(581,580). arc(582,581). arc(587,586). arc(588,587). arc(589,588). arc(590,589). arc(695,694). arc(696,695). arc(697,696). arc(698,697). arc(699,698). arc(700,699). arc(701,700). arc(702,701). arc(703,702). arc(704,703). arc(705,704). arc(706,705). arc(707,706). arc(708,707). arc(709,708). arc(710,709). arc(711,710). arc(712,711). arc(713,712). arc(714,713). arc(781,780). arc(782,781). arc(783,782). arc(784,783). arc(785,784). arc(786,785). arc(787,786). arc(788,787). arc(789,788). arc(790,789). arc(791,790). arc(792,791). arc(793,792). arc(794,793). arc(795,794). arc(796,795). arc(797,796). arc(798,797). arc(799,798). arc(800,799). arc(801,800). arc(802,801). arc(803,802). arc(804,803). arc(805,804). arc(806,805). arc(807,806). arc(808,807). arc(809,808). arc(38,8). arc(68,38). arc(98,68). arc(124,94). arc(132,102). arc(136,106). arc(140,110). arc(144,114). arc(154,124). arc(162,132). arc(166,136). arc(170,140). arc(174,144). arc(184,154). arc(192,162). arc(196,166). arc(200,170). arc(204,174). arc(214,184). arc(222,192). arc(226,196). arc(230,200). arc(234,204). arc(244,214). arc(248,218). arc(252,222). arc(256,226). arc(260,230). arc(274,244). arc(278,248). arc(282,252). arc(286,256). arc(290,260). arc(304,274). arc(308,278). arc(312,282). arc(316,286). arc(320,290). arc(334,304). arc(338,308). arc(342,312). arc(346,316). arc(350,320). arc(364,334). arc(368,338). arc(372,342). arc(376,346). arc(380,350). arc(384,354). arc(394,364). arc(398,368). arc(402,372). arc(406,376). arc(410,380). arc(414,384). arc(424,394). arc(428,398). arc(432,402). arc(436,406). arc(440,410). arc(444,414). arc(454,424). arc(458,428). arc(462,432). arc(466,436). arc(470,440). arc(474,444). arc(484,454). arc(488,458). arc(492,462). arc(496,466). arc(500,470). arc(504,474). arc(514,484). arc(518,488). arc(522,492). arc(526,496). arc(530,500). arc(534,504). arc(544,514). arc(548,518). arc(552,522). arc(556,526). arc(560,530). arc(564,534). arc(574,544). arc(578,548). arc(582,552). arc(586,556). arc(590,560). arc(594,564). arc(604,574). arc(608,578). arc(612,582). arc(616,586). arc(620,590). arc(624,594). arc(634,604). arc(638,608). arc(642,612). arc(646,616). arc(650,620). arc(654,624). arc(664,634). arc(668,638). arc(672,642). arc(676,646). arc(680,650). arc(684,654). arc(694,664). arc(698,668). arc(702,672). arc(706,676). arc(710,680). arc(714,684). arc(740,710). arc(770,740). arc(800,770). arc(1002,1003). arc(1001,1002). arc(359,1001). arc(0,1). arc(1,2). arc(2,3). arc(3,4). arc(4,5). arc(5,6). arc(6,7). arc(7,8). arc(8,9). arc(9,10). arc(10,11). arc(11,12). arc(12,13). arc(13,14). arc(14,15). arc(15,16). arc(16,17). arc(17,18). arc(18,19). arc(19,20). arc(20,21). arc(21,22). arc(22,23). arc(23,24). arc(24,25). arc(25,26). arc(26,27). arc(27,28). arc(28,29). arc(94,95). arc(95,96). arc(96,97). arc(97,98). arc(98,99). arc(99,100). arc(100,101). arc(101,102). arc(102,103). arc(103,104). arc(104,105). arc(105,106). arc(106,107). arc(107,108). arc(108,109). arc(109,110). arc(110,111). arc(111,112). arc(112,113). arc(113,114). arc(214,215). arc(215,216). arc(216,217). arc(217,218). arc(218,219). arc(219,220). arc(220,221). arc(221,222). arc(222,223). arc(223,224). arc(224,225). arc(225,226). arc(226,227). arc(227,228). arc(228,229). arc(229,230). arc(230,231). arc(231,232). arc(232,233). arc(233,234). arc(1003,330). arc(330,331). arc(331,332). arc(332,333). arc(333,334). arc(334,335). arc(335,336). arc(336,337). arc(337,338). arc(342,343). arc(343,344). arc(344,345). arc(345,346). arc(350,351). arc(351,352). arc(352,353). arc(353,354). arc(354,355). arc(355,356). arc(356,357). arc(357,358). arc(358,359). arc(452,453). arc(453,454). arc(454,455). arc(455,456). arc(456,457). arc(457,458). arc(458,459). arc(459,460). arc(460,461). arc(461,462). arc(462,463). arc(463,464). arc(464,465). arc(465,466). arc(466,467). arc(467,468). arc(468,469). arc(469,470). arc(470,471). arc(471,472). arc(472,473). arc(473,474). arc(474,475). arc(475,476). arc(476,477). arc(578,579). arc(579,580). arc(580,581). arc(581,582). arc(586,587). arc(587,588). arc(588,589). arc(589,590). arc(694,695). arc(695,696). arc(696,697). arc(697,698). arc(698,699). arc(699,700). arc(700,701). arc(701,702). arc(702,703). arc(703,704). arc(704,705). arc(705,706). arc(706,707). arc(707,708). arc(708,709). arc(709,710). arc(710,711). arc(711,712). arc(712,713). arc(713,714). arc(780,781). arc(781,782). arc(782,783). arc(783,784). arc(784,785). arc(785,786). arc(786,787). arc(787,788). arc(788,789). arc(789,790). arc(790,791). arc(791,792). arc(792,793). arc(793,794). arc(794,795). arc(795,796). arc(796,797). arc(797,798). arc(798,799). arc(799,800). arc(800,801). arc(801,802). arc(802,803). arc(803,804). arc(804,805). arc(805,806). arc(806,807). arc(807,808). arc(808,809). arc(8,38). arc(38,68). arc(68,98). arc(94,124). arc(102,132). arc(106,136). arc(110,140). arc(114,144). arc(124,154). arc(132,162). arc(136,166). arc(140,170). arc(144,174). arc(154,184). arc(162,192). arc(166,196). arc(170,200). arc(174,204). arc(184,214). arc(192,222). arc(196,226). arc(200,230). arc(204,234). arc(214,244). arc(218,248). arc(222,252). arc(226,256). arc(230,260). arc(244,274). arc(248,278). arc(252,282). arc(256,286). arc(260,290). arc(274,304). arc(278,308). arc(282,312). arc(286,316). arc(290,320). arc(304,334). arc(308,338). arc(312,342). arc(316,346). arc(320,350). arc(334,364). arc(338,368). arc(342,372). arc(346,376). arc(350,380). arc(354,384). arc(364,394). arc(368,398). arc(372,402). arc(376,406). arc(380,410). arc(384,414). arc(394,424). arc(398,428). arc(402,432). arc(406,436). arc(410,440). arc(414,444). arc(424,454). arc(428,458). arc(432,462). arc(436,466). arc(440,470). arc(444,474). arc(454,484). arc(458,488). arc(462,492). arc(466,496). arc(470,500). arc(474,504). arc(484,514). arc(488,518). arc(492,522). arc(496,526). arc(500,530). arc(504,534). arc(514,544). arc(518,548). arc(522,552). arc(526,556). arc(530,560). arc(534,564). arc(544,574). arc(548,578). arc(552,582). arc(556,586). arc(560,590). arc(564,594). arc(574,604). arc(578,608). arc(582,612). arc(586,616). arc(590,620). arc(594,624). arc(604,634). arc(608,638). arc(612,642). arc(616,646). arc(620,650). arc(624,654). arc(634,664). arc(638,668). arc(642,672). arc(646,676). arc(650,680). arc(654,684). arc(664,694). arc(668,698). arc(672,702). arc(676,706). arc(680,710). arc(684,714). arc(710,740). arc(740,770). arc(770,800).
+
+
+paymentMultiplier(1, 10). paymentMultiplier(2, 10). paymentMultiplier(3, 10). paymentMultiplier(4, 2). paymentMultiplier(5, 2). paymentMultiplier(6, 2). paymentMultiplier(7, 2). paymentMultiplier(8, 0). paymentMultiplier(9, 0). paymentMultiplier(10, 0).
+
+
+distanzeConsentite(1..10).
+
+direction(up) | direction(right) | direction(down) | direction(left).
+%closeWall | notCloseWall :- candidateWall(_), closedWalls(N), N < 2.
+
+newPos(N) :- player(X), direction(up), N = X - 30.
+newPos(N) :- player(X), direction(right), N = X + 1, X != 359, X != 1003.
+newPos(N) :- player(X), direction(down), N = X + 30.
+newPos(N) :- player(X), direction(left), N = X - 1, X != 330, X != 1001.
+
+newPos(N) :- player(X), direction(right), N = 330, X = 1003.
+newPos(N) :- player(X), direction(left), N = 1003, X = 330.
+
+newPos(N) :- player(X), direction(right), N = 1001, X = 359.
+newPos(N) :- player(X), direction(left), N = 359, X = 1001.
+
+%wall(N) :- closeWall, candidateWall(N).
+
+:- newPos(N1), player(N2), not arc(N1, N2).
+:- newPos(N), wall(N).
+
+distanzeTarget(D,V) :- D = #min{C : newPos(N1), coin(N2), nodo(N1, X1, Y1), nodo(N2, X2, Y2), &abs(X1-X2;D1), &abs(Y1-Y2;D2), C = D1+D2}, V = 20.
+distanzeTarget(D,V) :- newPos(N1), bag(N2), nodo(N1, X1, Y1), nodo(N2, X2, Y2), &abs(X1-X2;D1), &abs(Y1-Y2;D2), D = D1+D2, V = 1000.
+distanzeTarget(D,V) :- newPos(N1), bonus(N2), nodo(N1, X1, Y1), nodo(N2, X2, Y2), &abs(X1-X2;D1), &abs(Y1-Y2;D2), D = D1+D2, V = 200.
+ 
+target(D) :- distanzeTarget(D, V), #max{X : distanzeTarget(_, X)} = V.
+
+
+distanzeCalcolateNemici(D, L) :- newPos(N1), enemy(N2, L, _), distanzeCalcolate(N1, N2, D).
+
+distanzeNemiciTemp(D,L) :- newPos(N1), enemy(N2, L, _), distanzeGenerate(N1, N2, D).
+distanzeReali(D, L) :- newPos(N1), enemy(N2, L, _), nodo(N1, X1, Y1), nodo(N2, X2, Y2), wall(W), nodo(W, W1, W2), X1 = X2, Y1 < Y2, W1 = X2, W2 > Y1, W2 < Y2, distanzeNemiciTemp(D1, L), D = D1 + 10.
+distanzeReali(D, L) :- newPos(N1), enemy(N2, L, _), nodo(N1, X1, Y1), nodo(N2, X2, Y2), wall(W), nodo(W, W1, W2), X1 = X2, Y1 > Y2, W1 = X2, W2 < Y1, W2 > Y2, distanzeNemiciTemp(D1, L), D = D1 + 10.
+distanzeReali(D, L) :- newPos(N1), enemy(N2, L, _), nodo(N1, X1, Y1), nodo(N2, X2, Y2), wall(W), nodo(W, W1, W2), Y1 = Y2, X1 < X2, W2 = Y2, W1 > X1, W1 < X2, distanzeNemiciTemp(D1, L), D = D1 + 10.
+distanzeReali(D, L) :- newPos(N1), enemy(N2, L, _), nodo(N1, X1, Y1), nodo(N2, X2, Y2), wall(W), nodo(W, W1, W2), Y1 = Y2, X1 > X2, W2 = Y2, W1 < X1, W1 > X2, distanzeNemiciTemp(D1, L), D = D1 + 10.
+
+distanzeNemici(D, L) :- distanzeNemiciTemp(D, L), not distanzeReali(D, L).
+distanzeNemici(D, L) :- distanzeReali(D, L).
+
+invertita :- previousDirection(left), direction(right).
+invertita :- previousDirection(right), direction(left).
+invertita :- previousDirection(down), direction(up).
+invertita :- previousDirection(up), direction(down).
+
+cambiata :- previousDirection(X), direction(Y), X != Y.
+
+minimaDistanzaNemico(D) :- #min{N : distanzeNemici(N, _)} = D, distanzeConsentite(D).
+
+conteggioNemiciVicini(D) :- #count{L : distanzeNemici(X, L), L < 7} = D.
+
+
+
+:~ minimaDistanzaNemico(D), D < 5, Y = 10 - D. [Y@5]
+:~ enemy(N1, L, active), newPos(N1). [1@6, L]
+:~ enemy(N1, L, active), distanzeNemici(X, L), not minimaDistanzaNemico(X), Y = 10 - X. [Y@3, L]
+:~ newPos(X), criticalPosition(X), enemy(Y, L, _), distanzeCalcolate(X, Y, D), D < 21, P = 20 - D. [P@4, L]
+:~ newPos(N), not coin(N). [2@2]
+:~ cambiata. [1@1]
+%:~ invertita. [1@1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% :- closeWall, #count{L : distanzeReali(D, L)} = 0.
+
+%:~ minimaDistanzaNemico(X), X < 5, P = 4 - X. [P@6]
+
+
+% TEST LEVEL 8
+%:~ enemy(N1, L, active), newPos(N1). [1000@8, L]
+
+% TEST LEVEL 7
+%:~ enemy(N1, L, active), direction(D), dangerousBehaviour(D, L, M), M = 10, distanzeNemici(X, L), X < 11, Y = 10 - X, P = Y * M. [P@7, L]
+%:~ enemy(N1, L, restart), direction(D), dangerousBehaviour(D, L, M), M = 10, distanzeNemici(X, L), X < 6, Y = 5 - X, P = Y * M. [P@7, L]
+
+% TEST LEVEL 6
+% :~ enemy(N1, L, active), newPos(N1). [1000@6, L]
+%:~ enemy(_, L, active), distanzeNemici(X,L), direction(D), outOfArea(D, L), X < 7, P = 6 - X. [P@6, L]
+%:~ enemy(_, L, restart), distanzeNemici(X,L), direction(D), outOfArea(D, L), X < 7, P = 6 - X. [P@6, L]
+% :~ enemy(_, L, locked), distanzeNemici(X,L). [X@6, L]
+
+% TEST LEVEL 5
+%:~ direction(D), #count{L : dangerousBehaviour(D, L, _)} = C, C > 0. [C@5]
+%:~ newPos(N1), nodo(N1, X1, _), &abs(X1-15;D1). [D1@5]
+%:~ newPos(N1), nodo(N1, _, Y1), &abs(Y1-13;D1). [D1@5]
+%:~ enemy(_, L, active), distanzeNemici(X,L), direction(D), notDangerousBehaviour(D, L), X < 7, P = 6 - X. [P@5, L]
+%:~ enemy(_, L, restart), distanzeNemici(X,L), direction(D), notDangerousBehaviour(D, L), X < 7, P = 6 - X. [P@5, L]
+
+%:~ newPos(X), criticalPosition(X). [2@4]
+%:~ newPos(N), nearWall(N). [2@4]
+
+%:~ closeWall, #count{L : distanzeReali(D, L)} = 0. [1@2]
+
+%:~ newPos(N), not coin(N). [2@2]
+
+
+
+
+
+% TEST LEVEL 5 (OLD)
+%:~ enemy(_, L, active), distanzeCalcolateNemici(X,L), #count{Y : distanzeNemici(Y,_)} > 0, X < 15, P = 14 - X. [P@5, L]
+%:~ enemy(_, L, restart), distanzeCalcolateNemici(X,L), #count{Y : distanzeNemici(Y,_)} > 0, X < 8, P = 7 - X. [P@5, L]
+
+% :~ #count{C : distanzeNemici(C, _)} > 0, X = #min{N : distanzeNemici(N, _)}, X < 4, P = 4 - X. [X@3]
+% :~ distanzeNemici(X,L), X < 6, P = 5 - X. [P@6, L]
+% :~ target(D), D > 0. [D@2]

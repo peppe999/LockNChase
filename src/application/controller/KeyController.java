@@ -1,5 +1,7 @@
 package application.controller;
 
+import application.AudioManager;
+import application.GameAppManager;
 import application.model.Direction;
 import application.model.Game;
 import application.model.GameMode;
@@ -18,7 +20,7 @@ public class KeyController implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
         if(event.getEventType().equals(KeyEvent.KEY_PRESSED)) {
-            if(game.getMode().equals(GameMode.USER_MODE)) {
+            if(GameAppManager.getInstance().getMode().equals(GameMode.USER_MODE)) {
                 if (event.getCode() == KeyCode.RIGHT) {
                     game.setNewPlayerDirection(Direction.RIGHT);
                 } else if (event.getCode() == KeyCode.LEFT) {
@@ -33,8 +35,7 @@ public class KeyController implements EventHandler<KeyEvent> {
             }
 
             if(event.getCode() == KeyCode.ESCAPE) {
-                game.pause();
-                // Qui vediamo dopo okay?
+                GameAppManager.getInstance().pause();
             }
         }
     }

@@ -1,7 +1,10 @@
 package application.view.jfxgraphic;
 
+import application.AudioManager;
+import application.GameAppManager;
 import application.controller.KeyController;
 import application.model.Game;
+import application.model.NotifiableStates;
 import application.model.Wall;
 import application.view.GraphicSystem;
 import javafx.scene.canvas.Canvas;
@@ -152,6 +155,9 @@ public class GraphicPanel extends Pane implements GraphicSystem {
     public void update() {
         game.update();
 
+        if(game.isGameOver())
+            GameAppManager.getInstance().gameOver();
+
         if(!game.getStiffy().isActive() && game.isWinFreeze())
             stiffyGraphic.setState(CharacterView.PL_WIN);
         else
@@ -194,6 +200,64 @@ public class GraphicPanel extends Pane implements GraphicSystem {
 
         playerGraphic.update();
 
+
+        chooseAudio();
+
         draw();
+    }
+
+    private void chooseAudio() {
+        NotifiableStates states = game.getStates();
+        AudioManager audioManager = AudioManager.getInstance();
+
+        if(states.getStateValue("win")) {
+            audioManager.primaryPlay("win", false, null, true);
+            states.processState("win");
+        }
+        else if(states.getStateValue("startGame")) {
+            audioManager.primaryPlay("startGame", false, "run", false);
+            states.processState("startGame");
+        }
+        else if(states.getStateValue("die")) {
+            audioManager.primaryPlay("die", false, null, true);
+            states.processState("die");
+        }
+        else if(states.getStateValue("newLvl")) {
+            audioManager.primaryPlay("run", true, null, false);
+            states.processState("newLvl");
+        }
+
+
+        if(states.getStateValue("money")) {
+            audioManager.secondaryPlay("money", false);
+            states.processState("money");
+        }
+        if(states.getStateValue("bagSpawn")) {
+            audioManager.secondaryPlay("bagSpawn", true);
+            states.processState("bagSpawn");
+        }
+        if(states.getStateValue("doorClosed")) {
+            if(states.getStateValue("lockedEnemies")) {
+                audioManager.secondaryPlay("lockedEnemies", false);
+                states.processState("lockedEnemies");
+            }
+            else
+                audioManager.secondaryPlay("doorClosed", false);
+
+            states.processState("doorClosed");
+        }
+        if(states.getStateValue("pickBag")) {
+            audioManager.secondaryPlay("pickBag", true);
+            states.processState("pickBag");
+        }
+        if(states.getStateValue("pickLvlBonus")) {
+            audioManager.secondaryPlay("pickLvlBonus", false);
+            states.processState("pickLvlBonus");
+        }
+        if(states.getStateValue("bonusLife")) {
+            audioManager.secondaryPlay("bonusLife", false);
+            states.processState("bonusLife");
+        }
+
     }
 }

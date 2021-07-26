@@ -1,13 +1,13 @@
 package application.controller;
 
+import application.AudioManager;
 import application.GameAppManager;
+import application.model.GameMode;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import application.Main;
-import application.GameAppManager;
 
 import java.io.IOException;
 
@@ -22,6 +22,9 @@ public class ChooseLvlController  {
 
 
     public void difficileClicked(MouseEvent mouseEvent) {
+        AudioManager.getInstance().secondaryPlay("beep", false);
+        GameAppManager.getInstance().setMode(GameMode.AI_MODE_EXPERT);
+        GameAppManager.getInstance().startGame();
     }
 
     public void difficileEntered(MouseEvent mouseEvent) {
@@ -30,12 +33,15 @@ public class ChooseLvlController  {
     }
 
     public void difficileExited(MouseEvent mouseEvent) {
-        difficile.setTextFill(Color.web("#ffffff", 0.8));
+        difficile.setTextFill(Color.web("#ffffff"));
         difficile.setFont(new Font(20.0));
     }
 
     public void sempliceClicked(MouseEvent mouseEvent) {
-        GameAppManager.getInstance().paus();
+        AudioManager.getInstance().secondaryPlay("beep", false);
+        GameAppManager.getInstance().setMode(GameMode.AI_MODE_BEGINNER);
+        GameAppManager.getInstance().startGame();
+        //GameAppManager.getInstance().pause();
     }
 
     public void sempliceEntered(MouseEvent mouseEvent) {
@@ -44,13 +50,14 @@ public class ChooseLvlController  {
     }
 
     public void sempliceExited(MouseEvent mouseEvent) {
-        semplice.setTextFill(Color.web("#ffffff", 0.8));
+        semplice.setTextFill(Color.web("#ffffff"));
         semplice.setFont(new Font(20.0));
     }
 
 
     public void backClicked(MouseEvent mouseEvent) throws IOException {
-       GameAppManager.getInstance().chooseMode();
+        AudioManager.getInstance().secondaryPlay("beep", false);
+        GameAppManager.getInstance().chooseMode();
     }
 
     public void backEntered(MouseEvent mouseEvent) {
@@ -59,7 +66,7 @@ public class ChooseLvlController  {
     }
 
     public void backExited(MouseEvent mouseEvent) {
-        back.setTextFill(Color.web("#ffffff", 0.8));
+        back.setTextFill(Color.web("#ffffff"));
         back.setFont(new Font(18.0));
     }
 }
