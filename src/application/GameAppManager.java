@@ -31,7 +31,7 @@ public class GameAppManager {
     }
 
     public void setMode(Integer mode) {
-        if(mode.equals(GameMode.USER_MODE) || mode.equals(GameMode.AI_MODE_BEGINNER) || mode.equals(GameMode.AI_MODE_EXPERT))
+        if(mode.equals(GameMode.USER_MODE) || mode.equals(GameMode.AI_MODE))
             this.mode = mode;
     }
 
@@ -71,18 +71,6 @@ public class GameAppManager {
         }
     }
 
-    public void chooselvl() {
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getResource("view/jfxgraphic/chooseLvl.fxml"));
-            stage.setScene(new Scene(root));
-           // audioManager.homeMedia();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
     public void pause() {
         audioManager.pauseAll();
         if(gameLoop != null)
@@ -113,7 +101,7 @@ public class GameAppManager {
 
         AIPlayer aiPlayer = null;
 
-        if(mode.equals(GameMode.AI_MODE_EXPERT) || mode.equals(GameMode.AI_MODE_BEGINNER)) {
+        if(mode.equals(GameMode.AI_MODE)) {
             aiPlayer = new AIPlayer(game, mode);
         }
 
