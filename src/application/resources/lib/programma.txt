@@ -54,18 +54,16 @@ minimaDistanzaNemico(D) :- #min{N : distanzeNemici(N, _)} = D, distanzeConsentit
 
 %☺
 
+:~ enemy(N1, L, active), newPos(N1). [1@6, L]
 :~preoccupati, minimaDistanzaNemico(D), D < 6, Y = 10 - D. [Y@5]
 :~not preoccupati, minimaDistanzaNemico(D), D < 3, Y = 10 - D. [Y@5]
-:~ enemy(N1, L, active), newPos(N1). [1@6, L]
-:~ enemy(N1, L, active), distanzeNemici(X, L), not minimaDistanzaNemico(X), X < 11, Y = 10 - X. [Y@3, L]
 :~ newPos(X), criticalPosition(X), enemy(Y, L, _), distanzeGeneriche(D, L), D < 21, P = 20 - D. [P@4, L]
+:~ newPos(N), nearWall(N). [2@4]
+:~ enemy(N1, L, active), distanzeNemici(X, L), not minimaDistanzaNemico(X), X < 11, Y = 10 - X. [Y@3, L]
 :~ newPos(N), not coin(N). [2@2]
 %:~ newPos(N), not coin(N), target(D), D > 0. [D@2]
 :~ cambiata. [1@1]
 :~ cambiata, newPos(N), not coin(N), target(D), D > 0. [D@1]
-:~ newPos(N), nearWall(N). [2@4]
-
-%:~direction(N), continua(N, L), distanzaNemici(D, L), D > 1, D < 3.  [D@5, L]
 
 
 %nodiNemiciMin(N):-minimaDistanzaNemico(D), distanzeNemici(D, L), enemy(N, L, _).
@@ -79,6 +77,11 @@ preoccupati :- direction(up), minimaDistanzaNemico(D), distanzeNemici(D, L), dir
 preoccupati :- direction(down), minimaDistanzaNemico(D), distanzeNemici(D, L), direzioneNemico(up, L), enemy(N, L, active), newPos(N2), nodo(N, X1, Y1), nodo(N2, X2, Y2), X2 < X1.
 
 
+:- closeWall, #count{L : distanzeReali(D, L)} = 0.
+
+
+
+
 continua(left, L):-direzioneNemico(down, L), direction(left).
 continua(left, L):-direzioneNemico(up, L), direction(left).
 continua(right, L):-direzioneNemico(down, L), direction(right).
@@ -88,6 +91,5 @@ continua(up, L):-direzioneNemico(left, L), direction(up).
 continua(down, L):-direzioneNemico(right, L), direction(down).
 continua(down, L):-direzioneNemico(left, L), direction(down).
 
+%:~direction(N), continua(N, L), distanzaNemici(D, L), D > 1, D < 3.  [D@5, L]
 
-
-:- closeWall, #count{L : distanzeReali(D, L)} = 0.

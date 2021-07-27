@@ -51,7 +51,7 @@ public class Game {
 
     public Game() {
         level = 0;
-        points = 2000;
+        points = 0;
         score = 0;
         lives = 5;
         startTimeout = 0;
