@@ -88,8 +88,6 @@ public class Game {
 
         try {
             int rIndex = 0;
-            PrintWriter writer = new PrintWriter(new FileWriter("fatti.txt"));
-            String outputFile = "";
             while (mapFile.ready()) {
                 String row = mapFile.readLine();
                 String[] cols = row.split(" ");
@@ -97,8 +95,6 @@ public class Game {
                     char value = cols[i].charAt(0);
 
                     allowedCells[rIndex][i] = value != 'N';
-                    if(allowedCells[rIndex][i])
-                        outputFile += "allowedCells(" + rIndex + ", " + i + "). ";
 
 
                     coins[rIndex][i] = (value == 'C' || value == 'c');
@@ -170,15 +166,8 @@ public class Game {
                         bonusItem = new BonusItem(new Coord(rIndex, i), level);
                     }
                 }
-                outputFile += "\n";
                 rIndex++;
             }
-
-            outputFile += "arc(" + (11 * allowedCells[0].length) + ", " + (12 * allowedCells[0].length - 1) +  "). ";
-            outputFile += "arc(" + (12 * allowedCells[0].length - 1) + ", " + (11 * allowedCells[0].length) +  ").";
-            writer.print(outputFile);
-            writer.flush();
-            writer.close();
 
         } catch (IOException e) {
             e.printStackTrace();
