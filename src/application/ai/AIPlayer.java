@@ -196,6 +196,8 @@ public class AIPlayer {
         }
 
         int d = Math.abs(x.getRow() - y.getRow()) + Math.abs(x.getCol() - y.getCol());
+        if(d < 11)
+            d += 10;
         return "distanzeCalcolate(" + getCoordsNode(x) + ", " + getCoordsNode(y) + ", " + d + "). ";
     }
 
@@ -215,7 +217,7 @@ public class AIPlayer {
 
         finished = false;
         InputProgram program = new ASPInputProgram();
-        program.addFilesPath("src/application/resources/lib/prova7.txt");
+        program.addFilesPath("src/application/resources/lib/programma.txt");
         String myFacts = "";
         handler.removeAll();
         OptionDescriptor optionDescriptor = new OptionDescriptor("-n 100 --no-facts");
