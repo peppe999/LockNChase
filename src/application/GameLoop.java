@@ -20,22 +20,22 @@ public class GameLoop extends AnimationTimer {
     @Override
     public void handle(long currentNanoTime) {
 
-        /*if(currentNanoTime - previousTime >= frequency/2 && aiPlayer != null) {
+        if(currentNanoTime - previousTime >= frequency/2 && aiPlayer != null) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     aiPlayer.exec();
                 }
             }).start();
-        }*/
+        }
         if (currentNanoTime - previousTime >= frequency) {
-            if(aiPlayer != null)
+            /*if(aiPlayer != null)
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         aiPlayer.exec();
                     }
-                }).start();
+                }).start();*/
 
             graphicSystem.update();
             previousTime = currentNanoTime;
